@@ -16,12 +16,20 @@ public class Aufgaben {
         while (weiter) {
             System.out.println();
             System.out.println("### Aufgaben 25.04 ###");
+            System.out.println("1. Rekursion");
+            System.out.println("2. Zeitspanne");
             System.out.println("99. Zurück");
             System.out.println("######################");
             try {
                 int eingabe = Integer.parseInt(bfr.readLine());
                 System.out.println();
                 switch (eingabe) {
+                    case 1:
+                        Rekursion.menu();
+                        break;
+                    case 2:
+                        Zeitspanne.menu();
+                        break;
                     case 99:
                         weiter = false;
                         break;

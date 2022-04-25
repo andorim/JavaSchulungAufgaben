@@ -123,12 +123,7 @@ public class Aufgaben {
     }
 
     private static void zeichneRechteck(int breite, int hoehe) {
-        for (int row = 0; row < hoehe; row++) {
-            for (int col = 0; col < breite; col++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+        zeichneRechteck(breite, hoehe, true);
     }
 
     private static void zeichneRechteck() {
@@ -181,9 +176,20 @@ public class Aufgaben {
         }
     }
 
+    /**
+     * Prints Random Values between [min...max]
+     *
+     * @param nr  number of Values
+     * @param min min Value
+     * @param max max Value
+     */
     private static void printRandom(int nr, int min, int max) {
+        int random;
         for (int i = 0; i < nr; i++) {
-            int random = (int) (Math.random() * (max - min)) + min;
+            //random = (int) (Math.random() * (max - min + 1)) + min;
+
+            Random rand = new Random();
+            random = rand.nextInt(max + 1 - min) + min;
             System.out.print(random + " ");
         }
         System.out.println();
