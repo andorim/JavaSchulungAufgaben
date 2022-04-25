@@ -51,7 +51,7 @@ public class Aufgaben {
         }
     }
 
-    public static void timeZones() {
+    private static void timeZones() {
         String[] zoneIds = TimeZone.getAvailableIDs();
 
         for (String id : zoneIds) {
@@ -59,7 +59,7 @@ public class Aufgaben {
         }
     }
 
-    public static void optionalZahlenreihe() {
+    private static void optionalZahlenreihe() {
         //3 1 2 3 2 1 2 1 1
         for (int i = 3; i > 0; i--) {
             System.out.print(i + " ");
@@ -69,7 +69,7 @@ public class Aufgaben {
         }
     }
 
-    public static void a7Field() {
+    private static void a7Field() {
         char a = 'A';
         a--;
         for (char c = a; c <= 'E'; c++) {
@@ -89,7 +89,7 @@ public class Aufgaben {
         }
     }
 
-    public static void a8Month() {
+    private static void a8Month() {
         for (int monat = 1; monat <= 12; monat++) {
             System.out.print("Monat " + monat + ": ");
             switch (monat) {

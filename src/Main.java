@@ -12,6 +12,7 @@ public class Main {
             System.out.println("### Main Menu ###");
             System.out.println("1. Aufgaben 21.04");
             System.out.println("2. Aufgaben 22.04");
+            System.out.println("3. Aufgaben 25.04");
             System.out.println("99. Beenden");
             System.out.println("#################");
             try {
@@ -24,13 +25,16 @@ public class Main {
                     case 2:
                         d0422.Aufgaben.menu();
                         break;
+                    case 3:
+                        d0425.Aufgaben.menu();
+                        break;
                     case 99:
                         weiter = false;
                         break;
                     default:
                         System.out.println("Fehler bei der Eingabe!");
                 }
-                
+
             } catch (Exception ex) {
                 System.out.println("Fehler bei der Eingabe!");
             }

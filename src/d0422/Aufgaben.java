@@ -1,18 +1,20 @@
 package d0422;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Aufgaben {
+    private static InputStreamReader reader = new InputStreamReader(System.in);
+    private static BufferedReader bfr = new BufferedReader(reader);
+
     public static void main(String[] args) {
         menu();
     }
 
     public static void menu() {
         boolean weiter = true;
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
 
         while (weiter) {
             System.out.println();
@@ -25,7 +27,7 @@ public class Aufgaben {
             System.out.println("99. Zurück");
             System.out.println("######################");
             try {
-                int eingabe = Integer.parseInt(bfr.readLine());
+                int eingabe = Integer.parseInt(eingabe());
                 System.out.println();
                 switch (eingabe) {
                     case 1:
@@ -55,15 +57,19 @@ public class Aufgaben {
         }
     }
 
-    public static void printFromTo() {
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
+    private static String eingabe() throws IOException {
+        return bfr.readLine();
+    }
 
+    private static String eingabe(String text) throws IOException {
+        System.out.println(text);
+        return bfr.readLine();
+    }
+
+    private static void printFromTo() {
         try {
-            System.out.println("Startwert:");
-            int from = Integer.parseInt(bfr.readLine());
-            System.out.println("Endwert:");
-            int to = Integer.parseInt(bfr.readLine());
+            int from = Integer.parseInt(eingabe("Startwert:"));
+            int to = Integer.parseInt(eingabe("Endwert:"));
             printFromTo(from, to);
 
         } catch (Exception ex) {
@@ -71,22 +77,18 @@ public class Aufgaben {
         }
     }
 
-    public static void printFromTo(int from, int to) {
+    private static void printFromTo(int from, int to) {
         for (int i = from; i <= to; i++) {
             System.out.print(i + " ");
         }
+
         System.out.println();
     }
 
-    public static int sum() {
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
-
+    private static int sum() {
         try {
-            System.out.println("Zahl 1:");
-            int zahl1 = Integer.parseInt(bfr.readLine());
-            System.out.println("Zahl 2:");
-            int zahl2 = Integer.parseInt(bfr.readLine());
+            int zahl1 = Integer.parseInt(eingabe("Zahl1"));
+            int zahl2 = Integer.parseInt(eingabe("Zahl2"));
             return sum(zahl1, zahl2);
 
         } catch (Exception ex) {
@@ -95,19 +97,14 @@ public class Aufgaben {
         }
     }
 
-    public static int sum(int zahl1, int zahl2) {
+    private static int sum(int zahl1, int zahl2) {
         return zahl1 + zahl2;
     }
 
-    public static int sumFromTo() {
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
-
+    private static int sumFromTo() {
         try {
-            System.out.println("Startwert:");
-            int from = Integer.parseInt(bfr.readLine());
-            System.out.println("Endwert:");
-            int to = Integer.parseInt(bfr.readLine());
+            int from = Integer.parseInt(eingabe("Startwert:"));
+            int to = Integer.parseInt(eingabe("Endwert:"));
             return sumFromTo(from, to);
 
         } catch (Exception ex) {
@@ -116,7 +113,7 @@ public class Aufgaben {
         }
     }
 
-    public static int sumFromTo(int from, int to) {
+    private static int sumFromTo(int from, int to) {
         int sum = 0;
         while (from <= to) {
             sum += from;
@@ -125,7 +122,7 @@ public class Aufgaben {
         return sum;
     }
 
-    public static void zeichneRechteck(int breite, int hoehe) {
+    private static void zeichneRechteck(int breite, int hoehe) {
         for (int row = 0; row < hoehe; row++) {
             for (int col = 0; col < breite; col++) {
                 System.out.print("*");
@@ -134,17 +131,11 @@ public class Aufgaben {
         }
     }
 
-    public static void zeichneRechteck() {
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
-
+    private static void zeichneRechteck() {
         try {
-            System.out.println("Breite:");
-            int breite = Integer.parseInt(bfr.readLine());
-            System.out.println("Höhe:");
-            int hoehe = Integer.parseInt(bfr.readLine());
-            System.out.println("Füllen (ja/nein):");
-            String fuellen = bfr.readLine();
+            int breite = Integer.parseInt(eingabe("Breite:"));
+            int hoehe = Integer.parseInt(eingabe("Höhe:"));
+            String fuellen = eingabe("Füllen (ja/nein):");
             if (fuellen.equalsIgnoreCase("ja") || fuellen.equalsIgnoreCase("j")) {
                 zeichneRechteck(breite, hoehe, true);
             } else if (fuellen.equalsIgnoreCase("nein") || fuellen.equalsIgnoreCase("n")) {
@@ -158,36 +149,31 @@ public class Aufgaben {
         }
     }
 
-    public static void zeichneRechteck(int breite, int hoehe, boolean fuellen) {
-        if (fuellen) {
-            zeichneRechteck(breite, hoehe);
-        } else {
-            for (int row = 0; row < hoehe; row++) {
-                for (int col = 0; col < breite; col++) {
-                    if (row == 0 || col == 0 || col == breite - 1 || row == hoehe - 1) {
-                        System.out.print("*");
-                    } else {
-                        System.out.print(" ");
-                    }
-
+    private static void zeichneRechteck(int breite, int hoehe, boolean fuellen) {
+        for (int row = 0; row < hoehe; row++) {
+            for (int col = 0; col < breite; col++) {
+                if (fuellen || row == 0 || col == 0 || col == breite - 1 || row == hoehe - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
                 }
-                System.out.println();
+
             }
+            System.out.println();
         }
     }
 
-    public static void printRandom() {
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
-
+    private static void printRandom() {
         try {
-            System.out.println("Anzahl Zahlen:");
-            int nr = Integer.parseInt(bfr.readLine());
-            System.out.println("Min:");
-            int min = Integer.parseInt(bfr.readLine());
-            System.out.println("Max:");
-            int max = Integer.parseInt(bfr.readLine());
-            printRandom(nr, min, max);
+            int nr = Integer.parseInt(eingabe("Anzahl Zahlen:"));
+            int min = Integer.parseInt(eingabe("Min:"));
+            int max = Integer.parseInt(eingabe("Max:"));
+            if (nr > 0 && min < max) {
+                printRandom(nr, min, max);
+            } else {
+                System.out.println("Anzahl muss größer 0 sein!");
+                System.out.println("Min muss < Max sein!");
+            }
 
 
         } catch (Exception ex) {
@@ -195,7 +181,7 @@ public class Aufgaben {
         }
     }
 
-    public static void printRandom(int nr, int min, int max) {
+    private static void printRandom(int nr, int min, int max) {
         for (int i = 0; i < nr; i++) {
             int random = (int) (Math.random() * (max - min)) + min;
             System.out.print(random + " ");
