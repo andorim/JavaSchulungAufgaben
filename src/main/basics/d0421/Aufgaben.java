@@ -1,4 +1,4 @@
-package d0421;
+package main.basics.d0421;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,4 +1,4 @@
-package d0425;
+package main.basics.d0425;
 
 import java.io.BufferedReader;
 import java.io.IOException;

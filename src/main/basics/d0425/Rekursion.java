@@ -1,4 +1,4 @@
-package d0425;
+package main.basics.d0425;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class Rekursion {
             System.out.println();
             System.out.println("### Aufgaben 25.04 Rekursion ###");
             System.out.println("1. getFakultätRekursiv (3)");
-            System.out.println("2. getFakultät (3)");
+            System.out.println("2. getFakultät");
             System.out.println("99. Zurück");
             System.out.println("######################");
             try {
@@ -28,10 +28,10 @@ public class Rekursion {
                 System.out.println();
                 switch (eingabe) {
                     case 1:
-                        System.out.println(getFakutaetRekursiv(3));
+                        System.out.println(getFakultaetRekursiv());
                         break;
                     case 2:
-                        System.out.println(getFakutaet(5));
+                        System.out.println(getFakultaet());
                         break;
                     case 99:
                         weiter = false;
@@ -54,19 +54,40 @@ public class Rekursion {
         return bfr.readLine();
     }
 
-    private static int getFakutaetRekursiv(int zahl) {
-        if (zahl <= 1) {
-            return 1;
-        } else {
-            return zahl * getFakutaetRekursiv(zahl - 1);
+    private static int getFakultaetRekursiv() {
+        try {
+            int zahl = Integer.parseInt(eingabe("Fakultät von:"));
+            return getFakultaetRekursiv(zahl);
+        } catch (Exception ex) {
+            System.out.println("Fehler bei der Eingabe!");
+            return 0;
         }
     }
 
+    private static int getFakultaetRekursiv(int zahl) {
+        if (zahl <= 1) {
+            return 1;
+        } else {
+            return zahl * getFakultaetRekursiv(zahl - 1);
+        }
+    }
+
+
+    private static int getFakultaet() {
+        try {
+            int zahl = Integer.parseInt(eingabe("Fakultät von:"));
+            return getFakultaet(zahl);
+        } catch (Exception ex) {
+            System.out.println("Fehler bei der Eingabe!");
+            return 0;
+        }
+
+    }
     /*
     3*(3-1)*(3-2)
      */
 
-    private static int getFakutaet(int zahl) {
+    private static int getFakultaet(int zahl) {
         int ergebnis = zahl;
         for (int i = 1; i < zahl; i++) {
             ergebnis *= zahl - i;

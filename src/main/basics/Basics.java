@@ -1,15 +1,21 @@
+package main.basics;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Basics {
     public static void main(String[] args) {
+        menu();
+    }
+
+    public static void menu() {
         boolean weiter = true;
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader bfr = new BufferedReader(reader);
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Main Menu ###");
+            System.out.println("### Basics Menu ###");
             System.out.println("1. Aufgaben 21.04");
             System.out.println("2. Aufgaben 22.04");
             System.out.println("3. Aufgaben 25.04");
@@ -20,13 +26,13 @@ public class Main {
                 System.out.println();
                 switch (eingabe) {
                     case 1:
-                        d0421.Aufgaben.menu();
+                        main.basics.d0421.Aufgaben.menu();
                         break;
                     case 2:
-                        d0422.Aufgaben.menu();
+                        main.basics.d0422.Aufgaben.menu();
                         break;
                     case 3:
-                        d0425.Aufgaben.menu();
+                        main.basics.d0425.Aufgaben.menu();
                         break;
                     case 99:
                         weiter = false;
