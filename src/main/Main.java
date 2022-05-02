@@ -41,7 +41,7 @@ public class Main {
                         System.out.println("Fehler bei der Eingabe!");
                 }
 
-            } catch (Exception ex) {
+            } catch (IOException | NumberFormatException ex) {
                 System.out.println("Fehler bei der Eingabe!");
             }
         }

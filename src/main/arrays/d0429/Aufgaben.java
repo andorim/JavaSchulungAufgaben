@@ -1,8 +1,11 @@
 package main.arrays.d0429;
 
+import java.io.IOException;
 import java.util.Random;
 
 import static main.Main.eingabe;
+
+import main.OddbException;
 
 public class Aufgaben {
     public static void main(String[] args) {
@@ -48,8 +51,7 @@ public class Aufgaben {
                     default:
                         System.out.println("Fehler bei der Eingabe!");
                 }
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } catch (IOException | NumberFormatException ex) {
                 System.out.println("Fehler bei der Eingabe!");
             }
         }
@@ -117,21 +119,31 @@ public class Aufgaben {
     }
 
     private static void A6() {
-        int[] a1 = {1, 2, 3};
-        int[] a2 = {12, 13, 14};
-        int[] a3 = add(a1, a2); // a3 bekommt folgende Werte: 13, 15, 17
+        try {
+            int[] a1 = {1, 2, 3};
+            int[] a2 = {12, 13, 14};
+            int[] a3 = add(a1, a2); // a3 bekommt folgende Werte: 13, 15, 17
 
-        for (int i = 0; i < a1.length; i++) {
-            System.out.println(a1[i] + " + " + a2[i] + " = " + a3[i]);
+            for (int i = 0; i < a1.length; i++) {
+                System.out.println(a1[i] + " + " + a2[i] + " = " + a3[i]);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
-    private static int[] add(int[] arr1, int[] arr2) {
+    private static int[] add(int[] arr1, int[] arr2) throws OddbException {
+        if (arr1 == null || arr2 == null) {
+            throw new OddbException("Beide Arrays dürfen nicht Null sein!");
+        } else if (arr2.length != arr1.length) {
+            throw new OddbException("Das zweite Array muss genauso lang sein wie das erste!");
+        }
         int[] results = new int[arr1.length];
         for (int i = 0; i < arr1.length; i++) {
             results[i] = arr1[i] + arr2[i];
         }
         return results;
+
     }
 
     private static void A7() {

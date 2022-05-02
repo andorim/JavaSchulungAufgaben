@@ -1,5 +1,7 @@
 package templates;
 
+import java.io.IOException;
+
 import static main.Main.*;
 
 public class Aufgaben {
@@ -26,7 +28,7 @@ public class Aufgaben {
                     default:
                         System.out.println("Fehler bei der Eingabe!");
                 }
-            } catch (Exception ex) {
+            } catch (IOException | NumberFormatException ex) {
                 System.out.println("Fehler bei der Eingabe!");
             }
         }
