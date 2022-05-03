@@ -1,12 +1,12 @@
 package main.arrays.d0502;
 
-import main.OddbException;
 
 public class Hafen {
-    private final int maxCapacity = 100;
+    private int maxCapacity;
     private Schiff[] schiffe;
 
-    public Hafen() {
+    public Hafen(int maxCapacity) {
+        this.maxCapacity = maxCapacity;
         schiffe = new Schiff[0];
     }
 
@@ -40,7 +40,7 @@ public class Hafen {
             }
             if (schiffFound) {
                 this.schiffe = temp;
-                System.out.println("Schiff " + schiff + "wurde abgedockt!");
+                System.out.println("Schiff " + schiff + " wurde abgedockt!");
             } else {
                 System.out.println("Schiff konnte nicht gefunden werden");
             }
@@ -68,5 +68,14 @@ public class Hafen {
 
     public int getNumberOfDockedSchiffe() {
         return this.schiffe.length;
+    }
+
+    public Schiff getSchiffByName(String name) {
+        for (Schiff s : this.schiffe) {
+            if (s.name.equals(name)) {
+                return s;
+            }
+        }
+        return null;
     }
 }

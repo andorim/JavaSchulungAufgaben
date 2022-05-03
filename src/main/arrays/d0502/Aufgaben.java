@@ -1,7 +1,6 @@
 package main.arrays.d0502;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
 
 import static main.Main.eingabe;
 
@@ -13,7 +12,7 @@ public class Aufgaben {
     }
 
     public static void menu() {
-        hafen = new Hafen();
+        hafen = new Hafen(100);
         boolean weiter = true;
 
 
@@ -73,11 +72,36 @@ public class Aufgaben {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
-
     }
 
     public static void schiffUndock() {
+        System.out.println("### Abdocken ###");
+        System.out.println("1. Schiff aus Liste wählen");
+        System.out.println("2. Schiff anhand eines Namens abdocken");
+        System.out.println("99. Zurück");
+        System.out.println("################");
+
+        try {
+            int eingabe = Integer.parseInt(eingabe());
+
+            switch (eingabe) {
+                case 1:
+                    undockShipByList();
+                    break;
+                case 2:
+                    undockShipByName();
+                    break;
+                case 99:
+                    break;
+                default:
+                    System.out.println("Fehler bei der Eingabe!");
+            }
+        } catch (IOException | NumberFormatException ex) {
+            System.out.println("Fehler bei der Eingabe!");
+        }
+    }
+
+    private static void undockShipByList() {
         System.out.println("Angedockte Schiffe: \n");
         for (int i = 0; i < hafen.getNumberOfDockedSchiffe(); i++) {
             System.out.println(i + ". " + hafen.getSchiffByIndex(i));
@@ -88,6 +112,20 @@ public class Aufgaben {
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("Das angegebene Schiff konnte nicht abgedockt werden, da es nicht angedockt ist!");
         } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private static void undockShipByName() {
+        try {
+            String schiffsName = eingabe("Schiffsname:");
+            Schiff s = hafen.getSchiffByName(schiffsName);
+            if (s != null) {
+                hafen.removeSchiff(s);
+            } else {
+                System.out.println("Schiff nicht gefunden!");
+            }
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
 
