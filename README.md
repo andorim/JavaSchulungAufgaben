@@ -6,4 +6,4 @@ Bei der Einzelausführung ist aber dabei zu beachten, dass es eine Abhängigkeit
 Deshalb am besten das Ganze Projekt klonen, falls ihr damit testen wollt. 
 Wenn ihr nur schauen wollt, klappt das auch ganz gut hier auf GitHub. 
 
-Unter Realeases findet Ihr (nicht immer aktuell wahrscheinlich) eine Ausführbare .jar-Datei. Die kann man in der Konsole mit java -jar <Jar-Datei> ausführen. 
+Unter Realeases findet Ihr (nicht immer aktuell wahrscheinlich) eine Ausführbare .jar-Datei. Die kann man in der Konsole mit java -jar "Jar-Datei" ausführen. 
