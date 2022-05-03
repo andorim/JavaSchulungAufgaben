@@ -30,6 +30,9 @@ public class Aufgaben {
                     case 2:
                         main.arrays.d0503.A2DArrays.menu();
                         break;
+                    case 3:
+                        main.arrays.d0503.AIntMatrix.menu();
+                        break;
                     case 99:
                         weiter = false;
                         break;
