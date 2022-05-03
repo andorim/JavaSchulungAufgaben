@@ -1,10 +1,8 @@
-package main.arrays;
-
-import java.io.IOException;
+package main.spielereien;
 
 import static main.Main.eingabe;
 
-public class Arrays {
+public class Spielereien {
 
 
     public static void main(String[] args) {
@@ -17,10 +15,8 @@ public class Arrays {
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Arrays Menu ###");
-            System.out.println("1. Aufgaben 29.04");
-            System.out.println("2. Aufgaben 02.05");
-            System.out.println("3. Aufgaben 03.05");
+            System.out.println("### Spielereien Menu ###");
+            System.out.println("1. Durch unbekanntes Array iterieren");
             System.out.println("99. Zurück");
             System.out.println("######################");
             try {
@@ -28,13 +24,7 @@ public class Arrays {
                 System.out.println();
                 switch (eingabe) {
                     case 1:
-                        main.arrays.d0429.Aufgaben.menu();
-                        break;
-                    case 2:
-                        main.arrays.d0502.Aufgaben.menu();
-                        break;
-                    case 3:
-                        main.arrays.d0503.Aufgaben.menu();
+                        main.spielereien.IterateThroughUnknownArray.run();
                         break;
                     case 99:
                         weiter = false;
@@ -42,10 +32,9 @@ public class Arrays {
                     default:
                         System.out.println("Fehler bei der Eingabe!");
                 }
-            } catch (IOException | NumberFormatException ex) {
+            } catch (Exception ex) {
                 System.out.println("Fehler bei der Eingabe!");
             }
-
         }
     }
 
