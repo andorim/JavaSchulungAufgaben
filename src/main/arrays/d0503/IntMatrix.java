@@ -155,12 +155,12 @@ public class IntMatrix implements Cloneable {
     @Override
     public String toString() {
         String result = "";
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (j == matrix[i].length - 1) {
-                    result += matrix[i][j];
+        for (int i = 1; i <= this.getNoOfRows(); i++) {
+            for (int j = 1; j <= this.getNoOfCols(); j++) {
+                if (j == this.getNoOfCols()) {
+                    result += this.get(i, j);
                 } else {
-                    result += matrix[i][j] + ", ";
+                    result += this.get(i, j) + ", ";
                 }
 
             }
