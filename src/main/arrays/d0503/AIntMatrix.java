@@ -74,7 +74,7 @@ public class AIntMatrix {
             IntMatrix m = new IntMatrix(2, 3);
             System.out.println(m);
         } catch (OddbException ex) {
-
+            ex.printStackTrace();
         }
 
     }

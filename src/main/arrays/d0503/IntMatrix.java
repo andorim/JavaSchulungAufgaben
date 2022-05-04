@@ -66,12 +66,29 @@ public class IntMatrix implements Cloneable {
 
     }
 
-    public int get(int row, int col) {
-        return this.matrix[row - 1][col - 1];
+    public int get(int row, int col) throws OddbException {
+        if (isRowValid(row) && isColValid(col)) {
+            return this.matrix[row - 1][col - 1];
+        } else {
+            throw new OddbException("Die Angegebenen Koordinaten sind nicht korrekt!");
+        }
+
     }
 
-    public void set(int row, int col, int value) {
-        this.matrix[row - 1][col - 1] = value;
+    public void set(int row, int col, int value) throws OddbException {
+        if (isRowValid(row) && isColValid(col)) {
+            this.matrix[row - 1][col - 1] = value;
+        } else {
+            throw new OddbException("Die Angegebenen Koordinaten sind nicht korrekt!");
+        }
+    }
+
+    private boolean isRowValid(int row) {
+        return row > 0 && row <= this.getNoOfRows();
+    }
+
+    private boolean isColValid(int col) {
+        return col > 0 && col <= this.getNoOfCols();
     }
 
     public int getNoOfRows() {
@@ -83,18 +100,19 @@ public class IntMatrix implements Cloneable {
     }
 
     private void initMatrix(int value) {
-        for (int i = 1; i <= this.getNoOfRows(); i++) {
-            for (int j = 1; j <= this.getNoOfCols(); j++) {
-                this.set(i, j, value);
+        try {
+            for (int i = 1; i <= this.getNoOfRows(); i++) {
+                for (int j = 1; j <= this.getNoOfCols(); j++) {
+                    this.set(i, j, value);
+                }
             }
+        } catch (OddbException ex) {
+            ex.printStackTrace();
         }
     }
 
     public boolean sameDimensions(IntMatrix m) {
-        if (this.getNoOfRows() == m.getNoOfRows() && this.getNoOfCols() == m.getNoOfCols()) {
-            return true;
-        }
-        return false;
+        return this.getNoOfRows() == m.getNoOfRows() && this.getNoOfCols() == m.getNoOfCols();
     }
 
     public boolean equals(Object m1) {
@@ -107,11 +125,14 @@ public class IntMatrix implements Cloneable {
                 for (int i = 1; i <= rows; i++) {
                     int cols = this.getNoOfCols();
                     for (int j = 1; j <= cols; j++) {
-                        if (this.get(i, j) != m.get(i, j)) {
-                            return false;
+                        try {
+                            if (this.get(i, j) != m.get(i, j)) {
+                                return false;
+                            }
+                        } catch (OddbException ex) {
+                            ex.printStackTrace();
                         }
                     }
-
                 }
             }
             return true;
@@ -126,7 +147,11 @@ public class IntMatrix implements Cloneable {
         } else {
             for (int i = 1; i <= this.getNoOfRows(); i++) {
                 for (int j = 1; j <= this.getNoOfCols(); j++) {
-                    this.set(i, j, this.get(i, j) + m.get(i, j));
+                    try {
+                        this.set(i, j, this.get(i, j) + m.get(i, j));
+                    } catch (OddbException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }
@@ -139,7 +164,11 @@ public class IntMatrix implements Cloneable {
         } else {
             for (int i = 1; i <= this.getNoOfRows(); i++) {
                 for (int j = 1; j <= this.getNoOfCols(); j++) {
-                    this.set(i, j, this.get(i, j) * m.get(i, j));
+                    try {
+                        this.set(i, j, this.get(i, j) * m.get(i, j));
+                    } catch (OddbException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }
@@ -162,8 +191,6 @@ public class IntMatrix implements Cloneable {
         } catch (OddbException ex) {
             ex.printStackTrace();
         }
-
-
     }
 
     @Override
@@ -171,10 +198,14 @@ public class IntMatrix implements Cloneable {
         StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= this.getNoOfRows(); i++) {
             for (int j = 1; j <= this.getNoOfCols(); j++) {
-                if (j == this.getNoOfCols()) {
-                    sb.append(this.get(i, j));
-                } else {
-                    sb.append(this.get(i, j)).append(", ");
+                try {
+                    if (j == this.getNoOfCols()) {
+                        sb.append(this.get(i, j));
+                    } else {
+                        sb.append(this.get(i, j)).append(", ");
+                    }
+                } catch (OddbException ex) {
+                    ex.printStackTrace();
                 }
             }
             sb.append("\n");
