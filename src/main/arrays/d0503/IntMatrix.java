@@ -7,16 +7,16 @@ import java.util.Random;
 public class IntMatrix implements Cloneable {
     private int[][] matrix;
 
-    public IntMatrix(int rows, int cols) {
+    public IntMatrix(int rows, int cols) throws OddbException {
         createMatrix(rows, cols);
     }
 
-    public IntMatrix(int rows, int cols, int defaultValue) {
+    public IntMatrix(int rows, int cols, int defaultValue) throws OddbException {
         createMatrix(rows, cols);
         initMatrix(defaultValue);
     }
 
-    public static IntMatrix getRandomMatrix(int rows, int cols, int maxValue) {
+    public static IntMatrix getRandomMatrix(int rows, int cols, int maxValue) throws OddbException {
         IntMatrix matrix = new IntMatrix(rows, cols);
         Random rand = new Random();
         for (int i = 1; i <= rows; i++) {
@@ -57,8 +57,13 @@ public class IntMatrix implements Cloneable {
         }
     }
 
-    private void createMatrix(int rows, int cols) {
-        this.matrix = new int[rows][cols];
+    private void createMatrix(int rows, int cols) throws OddbException {
+        if (rows >= 0 && cols >= 0) {
+            this.matrix = new int[rows][cols];
+        } else {
+            throw new OddbException("Wie soll denn bitte eine Matrix mit einer negativen Anzahl an Zeilen/Spalten angelegt werden?!");
+        }
+
     }
 
     public int get(int row, int col) {
@@ -142,17 +147,22 @@ public class IntMatrix implements Cloneable {
     }
 
     public void transpose() {
-        IntMatrix tmp = new IntMatrix(this.getNoOfRows(), this.getNoOfCols());
-        for (int i = 1; i <= this.getNoOfRows(); i++) {
-            for (int j = 1; j <= this.getNoOfCols(); j++) {
-                tmp.set(j, i, this.get(i, j));
+        try {
+            IntMatrix tmp = new IntMatrix(this.getNoOfRows(), this.getNoOfCols());
+            for (int i = 1; i <= this.getNoOfRows(); i++) {
+                for (int j = 1; j <= this.getNoOfCols(); j++) {
+                    tmp.set(j, i, this.get(i, j));
+                }
             }
-        }
-        for (int i = 1; i <= this.getNoOfRows(); i++) {
-            for (int j = 1; j <= this.getNoOfCols(); j++) {
-                this.set(i, j, tmp.get(i, j));
+            for (int i = 1; i <= this.getNoOfRows(); i++) {
+                for (int j = 1; j <= this.getNoOfCols(); j++) {
+                    this.set(i, j, tmp.get(i, j));
+                }
             }
+        } catch (OddbException ex) {
+            ex.printStackTrace();
         }
+
 
     }
 
@@ -164,7 +174,7 @@ public class IntMatrix implements Cloneable {
                 if (j == this.getNoOfCols()) {
                     sb.append(this.get(i, j));
                 } else {
-                    sb.append(this.get(i, j) + ", ");
+                    sb.append(this.get(i, j)).append(", ");
                 }
             }
             sb.append("\n");

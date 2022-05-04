@@ -70,61 +70,87 @@ public class AIntMatrix {
 
 
     private static void a1() {
-        IntMatrix m = new IntMatrix(2, 3);
-        System.out.println(m);
+        try {
+            IntMatrix m = new IntMatrix(2, 3);
+            System.out.println(m);
+        } catch (OddbException ex) {
+
+        }
+
     }
 
     private static void a2() {
-        IntMatrix m = new IntMatrix(5, 3, 100);
-        System.out.println(m);
+        try {
+            IntMatrix m = new IntMatrix(5, 3, 100);
+            System.out.println(m);
+        } catch (OddbException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static void a3() {
-        IntMatrix m = new IntMatrix(2, 3);
-        System.out.println(m.get(1, 2));
+        try {
+            IntMatrix m = new IntMatrix(2, 3);
+            System.out.println(m.get(1, 2));
+        } catch (OddbException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static void a4() {
-        IntMatrix m = IntMatrix.getRandomMatrix(4, 6, 200);
-        System.out.println(m);
+        try {
+            IntMatrix m = IntMatrix.getRandomMatrix(4, 6, 200);
+            System.out.println(m);
+        } catch (OddbException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static void a5() {
-        IntMatrix m1 = new IntMatrix(2, 3, 5);
-        IntMatrix m2 = new IntMatrix(2, 3, 5);
-        System.out.println(m1.equals(m2));
+        try {
+            IntMatrix m1 = new IntMatrix(2, 3, 5);
+            IntMatrix m2 = new IntMatrix(2, 3, 5);
+            System.out.println(m1.equals(m2));
+        } catch (OddbException ex) {
+            ex.printStackTrace();
+        }
     }
 
     private static void addStatic() {
-        IntMatrix m1 = new IntMatrix(2, 3, 100);
-        IntMatrix m2 = new IntMatrix(2, 3, 100);
         try {
+            IntMatrix m1 = new IntMatrix(2, 3, 100);
+            IntMatrix m2 = new IntMatrix(2, 3, 100);
             IntMatrix m3 = IntMatrix.add2Matrices(m1, m2);
             System.out.println(m3);
         } catch (OddbException ex) {
-
+            ex.printStackTrace();
         }
 
     }
 
     private static void multiplyStatic() {
-        IntMatrix m1 = new IntMatrix(2, 3, 100);
-        IntMatrix m2 = new IntMatrix(2, 3, 100);
         try {
+            IntMatrix m1 = new IntMatrix(2, 3, 100);
+            IntMatrix m2 = new IntMatrix(2, 3, 100);
+
             IntMatrix m3 = IntMatrix.multiply2Matrices(m1, m2);
             System.out.println(m3);
         } catch (OddbException ex) {
-
+            ex.printStackTrace();
         }
 
     }
 
     private static void transpose() {
-        IntMatrix m = IntMatrix.getRandomMatrix(4, 4, 10);
-        System.out.println(m);
-        System.out.println("Transpose");
-        m.transpose();
-        System.out.println(m);
+        try {
+            IntMatrix m = IntMatrix.getRandomMatrix(4, 4, 10);
+            System.out.println(m);
+            System.out.println("Transpose");
+            m.transpose();
+            System.out.println(m);
+        } catch (OddbException ex) {
+            ex.printStackTrace();
+        }
     }
 
 
