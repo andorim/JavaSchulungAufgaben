@@ -26,6 +26,7 @@ public class AIntMatrix {
             System.out.println("6. Addiere 2 (2,3,100) Matrizen");
             System.out.println("7. Multipliziere 2 (2,3,100) Matrizen");
             System.out.println("8. Transponieren");
+            System.out.println("50. Alles ausführen");
             System.out.println("99. Zurück");
             System.out.println("############################");
             try {
@@ -54,6 +55,16 @@ public class AIntMatrix {
                         multiplyStatic();
                         break;
                     case 8:
+                        transpose();
+                        break;
+                    case 50:
+                        a1();
+                        a2();
+                        a3();
+                        a4();
+                        a5();
+                        addStatic();
+                        multiplyStatic();
                         transpose();
                         break;
                     case 99:
@@ -109,7 +120,7 @@ public class AIntMatrix {
     private static void a5() {
         try {
             IntMatrix m1 = new IntMatrix(2, 3, 5);
-            IntMatrix m2 = new IntMatrix(2, 3, 5);
+            IntMatrix m2 = new IntMatrix(3, 3, 5);
             System.out.println(m1.equals(m2));
         } catch (OddbException ex) {
             ex.printStackTrace();

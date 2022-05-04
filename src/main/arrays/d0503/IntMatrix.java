@@ -115,31 +115,32 @@ public class IntMatrix implements Cloneable {
         return this.getNoOfRows() == m.getNoOfRows() && this.getNoOfCols() == m.getNoOfCols();
     }
 
+    @Override
     public boolean equals(Object m1) {
-        if (m1 instanceof IntMatrix) {
-            IntMatrix m = (IntMatrix) m1;
-            if (!this.sameDimensions(m)) {
-                return false;
-            } else {
-                int rows = this.getNoOfRows();
-                for (int i = 1; i <= rows; i++) {
-                    int cols = this.getNoOfCols();
-                    for (int j = 1; j <= cols; j++) {
-                        try {
-                            if (this.get(i, j) != m.get(i, j)) {
-                                return false;
-                            }
-                        } catch (OddbException ex) {
-                            ex.printStackTrace();
-                        }
+        if (!(m1 instanceof IntMatrix)) {
+            return false;
+        }
+        IntMatrix m = (IntMatrix) m1;
+        if (!this.sameDimensions(m)) {
+            return false;
+        }
+        int rows = this.getNoOfRows();
+        for (int i = 1; i <= rows; i++) {
+            int cols = this.getNoOfCols();
+            for (int j = 1; j <= cols; j++) {
+                try {
+                    if (this.get(i, j) != m.get(i, j)) {
+                        return false;
                     }
+                } catch (OddbException ex) {
+                    ex.printStackTrace();
+                    return false;
                 }
             }
-            return true;
         }
-        return false;
-
+        return true;
     }
+
 
     public boolean addMatrix(IntMatrix m) {
         if (!this.sameDimensions(m)) {
