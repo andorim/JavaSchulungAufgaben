@@ -11,8 +11,7 @@ public class Aufgaben {
 
     public static void menu() {
         boolean weiter = true;
-
-
+        
         while (weiter) {
             System.out.println();
             System.out.println("### Aufgaben 06.05 ###");
@@ -38,7 +37,6 @@ public class Aufgaben {
         }
     }
 
-
     private static void aufgabe() {
         Rectangle rec = new Rectangle(3, 4);
         System.out.println(rec.getCoordinatesString());
@@ -50,7 +48,7 @@ public class Aufgaben {
         Circle circ = new Circle(4);
         System.out.println(circ.getCoordinatesString());
 
-        circ.moveTo(33, 1);
+        circ.bewegen(33, 1);
 
         System.out.println(circ.getCoordinatesString());
 

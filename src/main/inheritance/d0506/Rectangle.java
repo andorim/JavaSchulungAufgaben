@@ -14,6 +14,4 @@ public class Rectangle extends Shape {
     public String toString() {
         return "Rechteck (Höhe: " + this.height + " Breite: " + this.width + ")";
     }
-
-
 }
