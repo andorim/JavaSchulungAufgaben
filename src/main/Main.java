@@ -19,6 +19,7 @@ public class Main {
             System.out.println("1. Basics");
             System.out.println("2. Classes");
             System.out.println("3. Arrays");
+            System.out.println("4. Vererbung");
             System.out.println("50. Spielereien");
             System.out.println("99. Beenden");
             System.out.println("#################");
@@ -34,6 +35,9 @@ public class Main {
                         break;
                     case 3:
                         main.arrays.Arrays.menu();
+                        break;
+                    case 4:
+                        main.inheritance.Inheritence.menu();
                         break;
                     case 50:
                         main.spielereien.Spielereien.menu();
