@@ -23,6 +23,7 @@ public class Main {
             System.out.println("50. Spielereien");
             System.out.println("99. Beenden");
             System.out.println("#################");
+            
             try {
                 int eingabe = Integer.parseInt(bfr.readLine());
                 System.out.println();

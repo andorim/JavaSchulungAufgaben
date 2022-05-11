@@ -1,5 +1,7 @@
 package main.spielereien;
 
+import java.util.Arrays;
+
 public class IterateThroughUnknownArray {
 
 
@@ -37,15 +39,37 @@ public class IterateThroughUnknownArray {
             }
         }
 
+        int[] iArr = {1, 2, 3};
+        long[] longArr = Arrays.stream(iArr).asLongStream().toArray();
+
+
+        int i = 1;
+        long l = i;
+
         printArrayContentsFromUnknownArray(intArr);
     }
 
     public static void printArrayContentsFromUnknownArray(Object obj) {
-        System.out.println(obj.getClass());
         if (obj.getClass().isArray()) {
-            Object[] obj2 = (Object[]) obj;
-            for (int i = 0; i < obj2.length; i++) {
-                printArrayContentsFromUnknownArray(obj2[i]);
+            Object[] obj2;
+            try {
+                obj2 = (Object[]) obj;
+                for (int i = 0; i < obj2.length; i++) {
+                    printArrayContentsFromUnknownArray(obj2[i]);
+                }
+            } catch (Exception ex) {
+                //System.out.println(obj.getClass().toString());
+                // TODO: 03.05.2022 auf jeden primitiven Datentyp muss geprüft werden
+
+                if (obj instanceof int[]) {
+                    int[] iArr = (int[]) obj;
+                    String[] strArr = new String[iArr.length];
+                    for (int i = 0; i < iArr.length; i++) {
+                        strArr[i] = String.valueOf(iArr[i]);
+                    }
+                    printArrayContentsFromUnknownArray(strArr);
+                }
+                //ex.printStackTrace();
             }
         } else {
             System.out.println(obj);
