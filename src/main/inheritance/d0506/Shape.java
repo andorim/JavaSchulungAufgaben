@@ -17,7 +17,7 @@ public class Shape {
         return coordY;
     }
 
-    public void setCoordY(int coordY) {
+    public final void setCoordY(int coordY) {
         this.coordY = coordY;
     }
 
@@ -25,7 +25,7 @@ public class Shape {
         return coordX;
     }
 
-    public void setCoordX(int coordX) {
+    public final void setCoordX(int coordX) {
         this.coordX = coordX;
     }
 

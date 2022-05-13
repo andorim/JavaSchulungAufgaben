@@ -10,8 +10,6 @@ public class Main {
 
     public static void main(String[] args) {
         boolean weiter = true;
-        InputStreamReader reader = new InputStreamReader(System.in);
-        BufferedReader bfr = new BufferedReader(reader);
 
         while (weiter) {
             System.out.println();
@@ -20,12 +18,13 @@ public class Main {
             System.out.println("2. Classes");
             System.out.println("3. Arrays");
             System.out.println("4. Vererbung");
+            System.out.println("5. JavaAPI");
             System.out.println("50. Spielereien");
             System.out.println("99. Beenden");
             System.out.println("#################");
-            
+
             try {
-                int eingabe = Integer.parseInt(bfr.readLine());
+                int eingabe = Integer.parseInt(eingabe());
                 System.out.println();
                 switch (eingabe) {
                     case 1:
@@ -39,6 +38,9 @@ public class Main {
                         break;
                     case 4:
                         main.inheritance.Inheritence.menu();
+                        break;
+                    case 5:
+                        main.javaAPI.JavaAPI.menu();
                         break;
                     case 50:
                         main.spielereien.Spielereien.menu();
