@@ -79,9 +79,8 @@ public class Aufgaben {
             Date date = new Date();
             long start = date.getTime();
             for (int i = 0; i < loops; i++) {
-                string += s1;
-                string += s2;
-                string += s3;
+                // Unter java 17 im Vergleich zu Java 8 um einiges schneller!
+                string += s1 + s2 + s3;
             }
             date = new Date();
             long stringTime = date.getTime() - start;
