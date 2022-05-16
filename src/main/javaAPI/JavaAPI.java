@@ -17,6 +17,7 @@ public class JavaAPI {
             System.out.println();
             System.out.println("### Aufgaben JavaAPI ###");
             System.out.println("1. Aufgaben vom 13.05");
+            System.out.println("2. Aufgaben vom 16.05");
             System.out.println("99. Zurück");
             System.out.println("##########################");
             try {
@@ -25,6 +26,9 @@ public class JavaAPI {
                 switch (eingabe) {
                     case 1:
                         main.javaAPI.d0513.Aufgaben.menu();
+                        break;
+                    case 2:
+                        main.javaAPI.d0516.Aufgaben.menu();
                         break;
                     case 99:
                         weiter = false;
