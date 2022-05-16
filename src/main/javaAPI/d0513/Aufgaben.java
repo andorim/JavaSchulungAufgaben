@@ -15,7 +15,6 @@ public class Aufgaben {
     public static void menu() {
         boolean weiter = true;
 
-
         while (weiter) {
             System.out.println();
             System.out.println("### Aufgaben JavaAPI ###");
@@ -57,7 +56,13 @@ public class Aufgaben {
     }
 
     private static boolean einfacheAufgabe(String fileName) {
+        if (fileName == null) {
+            throw new IllegalArgumentException();
+        }
         int indexOfPoint = fileName.lastIndexOf(".");
+        if (indexOfPoint == 0) {
+            return false;
+        }
         String fileExt = fileName.substring(indexOfPoint + 1).toLowerCase();
         return fileExt.equals("txt");
     }
@@ -110,8 +115,6 @@ public class Aufgaben {
         } catch (Exception ex) {
             System.out.println("Fehler bei der Eingabe!");
         }
-
-
     }
 
 
