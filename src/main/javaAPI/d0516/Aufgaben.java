@@ -18,7 +18,7 @@ public class Aufgaben {
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Aufgaben dd.mm ###");
+            System.out.println("### Aufgaben 16.05 ###");
             System.out.println("1. kleine Aufgabe Index Of");
             System.out.println("2. String - StringBuilder (ein langer String)");
             System.out.println("3. String - StringBuilder (pro loop neuer String)");

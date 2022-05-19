@@ -1,10 +1,10 @@
-package main.javaAPI;
+package main.javaAPI.d0517;
 
 import java.io.IOException;
 
 import static main.Main.eingabe;
 
-public class JavaAPI {
+public class Aufgaben {
     public static void main(String[] args) {
         menu();
     }
@@ -15,24 +15,16 @@ public class JavaAPI {
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Aufgaben JavaAPI ###");
-            System.out.println("1. Aufgaben vom 13.05");
-            System.out.println("2. Aufgaben vom 16.05");
-            System.out.println("2. Aufgaben vom 17.05");
+            System.out.println("### Aufgaben 17.05 ###");
+            System.out.println("1. Taschenrechner");
             System.out.println("99. Zurück");
-            System.out.println("##########################");
+            System.out.println("######################");
             try {
                 int eingabe = Integer.parseInt(eingabe());
                 System.out.println();
                 switch (eingabe) {
                     case 1:
-                        main.javaAPI.d0513.Aufgaben.menu();
-                        break;
-                    case 2:
-                        main.javaAPI.d0516.Aufgaben.menu();
-                        break;
-                    case 3:
-                        main.javaAPI.d0517.Aufgaben.menu();
+                        new Calculator();
                         break;
                     case 99:
                         weiter = false;

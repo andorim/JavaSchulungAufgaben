@@ -15,7 +15,7 @@ public class Aufgaben {
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Aufgaben 11.05mm ###");
+            System.out.println("### Aufgaben 11.05 ###");
             System.out.println("1. TierTest");
             System.out.println("99. Zurück");
             System.out.println("######################");

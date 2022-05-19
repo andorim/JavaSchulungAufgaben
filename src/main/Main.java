@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    private static InputStreamReader reader = new InputStreamReader(System.in);
-    private static BufferedReader bfr = new BufferedReader(reader);
+    private static BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) {
         boolean weiter = true;
@@ -59,11 +58,11 @@ public class Main {
     }
 
     public static String eingabe() throws IOException {
-        return bfr.readLine();
+        return bfr.readLine().trim();
     }
 
     public static String eingabe(String text) throws IOException {
         System.out.println(text);
-        return bfr.readLine();
+        return bfr.readLine().trim();
     }
 }
