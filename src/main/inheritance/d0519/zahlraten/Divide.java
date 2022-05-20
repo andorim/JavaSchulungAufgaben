@@ -1,7 +1,6 @@
 package main.inheritance.d0519.zahlraten;
 
 public class Divide implements IntOperation {
-    private int result;
     private int value;
 
     public Divide(int value) {
@@ -10,13 +9,7 @@ public class Divide implements IntOperation {
 
     @Override
     public int execute(int x) {
-        result = x / value;
-        return result;
+        return x / value;
     }
 
-    public IntOperation andThen(IntOperation op) {
-        result = this.execute(result);
-        op.execute(result);
-        return op;
-    }
 }

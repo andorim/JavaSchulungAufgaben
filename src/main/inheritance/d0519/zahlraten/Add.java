@@ -10,14 +10,9 @@ public class Add implements IntOperation {
 
     @Override
     public int execute(int x) {
-        result = x + value;
-        return result;
+        return x + value;
+
     }
 
-    @Override
-    public IntOperation andThen(IntOperation op) {
-        result = this.execute(result);
-        op.execute(result);
-        return op;
-    }
+
 }

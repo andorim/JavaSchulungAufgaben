@@ -1,23 +1,16 @@
 package main.inheritance.d0519.zahlraten;
 
 public class ChangeSign implements IntOperation {
-    int value = -1;
-    int result;
+    int value;
 
     public ChangeSign() {
-
+        this.value = -1;
     }
 
     @Override
     public int execute(int x) {
-        result = x * value;
-        return result;
+        return x * value;
     }
 
-    public IntOperation andThen(IntOperation op) {
-        result = this.execute(result);
-        op.execute(result);
-        return op;
-    }
 
 }

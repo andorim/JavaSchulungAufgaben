@@ -10,13 +10,7 @@ public class Subtract implements IntOperation {
 
     @Override
     public int execute(int x) {
-        result = x - value;
-        return result;
-    }
-
-    public IntOperation andThen(IntOperation op) {
-        result = this.execute(result);
-        op.execute(result);
-        return op;
+        return x - value;
     }
 }
+

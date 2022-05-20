@@ -129,6 +129,7 @@ public class Aufgaben {
         Size s2 = new Size(3);
         System.out.println(getMax(s1, s2));
 
+
         main.inheritance.d0519.getMax.Kreis kreis1 = new main.inheritance.d0519.getMax.Kreis(9);
         main.inheritance.d0519.getMax.Kreis kreis2 = new main.inheritance.d0519.getMax.Kreis(12);
         System.out.println(getMax(kreis1, kreis2));
@@ -137,6 +138,9 @@ public class Aufgaben {
     }
 
     private static ValueSupplier getMax(ValueSupplier v1, ValueSupplier v2) {
+        // TODO: 20.05.22 Comparable Interface aus der Standardbibliothek anschauen (
+        //          Lösung vom Dozent Project Ineritence Package aufgaben.interface.getmax.besser)
+
         return v1.getValue() > v2.getValue() ? v1 : v2;
     }
 
@@ -177,8 +181,6 @@ public class Aufgaben {
     }
 
     private static void zahlenRaten3() {
-        // TODO: 19.05.22 Liefert immer -1 pls fix 
-
         IntOperation op = new Add(5)
                 .andThen(new ChangeSign())
                 .andThen(new Multiply(2))
