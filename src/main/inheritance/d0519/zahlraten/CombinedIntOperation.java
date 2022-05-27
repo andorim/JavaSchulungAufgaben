@@ -2,6 +2,8 @@ package main.inheritance.d0519.zahlraten;
 
 import java.util.ArrayList;
 
+// TODO: 23.05.22 Bessere Lösung siehe die Lösung vom Dozent
+
 public class CombinedIntOperation implements IntOperation {
 
     private ArrayList<IntOperation> ops;
@@ -14,11 +16,10 @@ public class CombinedIntOperation implements IntOperation {
 
     @Override
     public int execute(int x) {
-        int temp = x;
         for (IntOperation op : ops) {
-            temp = op.execute(temp);
+            x = op.execute(x);
         }
-        return temp;
+        return x;
     }
 
     @Override

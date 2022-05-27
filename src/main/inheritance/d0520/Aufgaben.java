@@ -1,10 +1,10 @@
-package main.inheritance;
+package main.inheritance.d0520;
 
 import java.io.IOException;
 
 import static main.Main.eingabe;
 
-public class Inheritence {
+public class Aufgaben {
     public static void main(String[] args) {
         menu();
     }
@@ -15,28 +15,20 @@ public class Inheritence {
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Aufgaben Vererbung ###");
-            System.out.println("1. Aufgaben 06.05");
-            System.out.println("2. Aufgaben 11.05");
-            System.out.println("3. Aufgaben 19.05");
-            System.out.println("4. Aufgaben 20.05");
+            System.out.println("### Aufgaben 20.05 ###");
+            System.out.println("1. A1");
+            System.out.println("2. A3");
             System.out.println("99. Zurück");
-            System.out.println("##########################");
+            System.out.println("######################");
             try {
                 int eingabe = Integer.parseInt(eingabe());
                 System.out.println();
                 switch (eingabe) {
                     case 1:
-                        main.inheritance.d0506.Aufgaben.menu();
+                        a1();
                         break;
                     case 2:
-                        main.inheritance.d0511.Aufgaben.menu();
-                        break;
-                    case 3:
-                        main.inheritance.d0519.Aufgaben.menu();
-                        break;
-                    case 4:
-                        main.inheritance.d0520.Aufgaben.menu();
+                        a3();
                         break;
                     case 99:
                         weiter = false;
@@ -50,5 +42,22 @@ public class Inheritence {
         }
     }
 
+    private static void a1() {
+        Test t = new Test();
+        int result = t.add(3, 5);
+        System.out.println("3 + 5 = " + result);
+    }
 
+    private static void a3() {
+        // TODO: 20.05.22 Nicht sicher ob ich die Aufgabe verstanden habe, Vergleich mit der Lösung
+        //                  vom Dozenten am Montag 23.05
+
+        Test2 t = new Test2();
+        System.out.println("t.add(5)" + t.add(5));
+        System.out.println("t.add(2,3)" + t.add(2, 3));
+        System.out.println("t.addToContainer(2,3)" + t.addToContainer(2, 3));
+        System.out.println("t.add(2)" + t.add(2));
+
+
+    }
 }

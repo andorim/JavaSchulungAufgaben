@@ -1,10 +1,11 @@
-package main.inheritance;
+package main.javaAPI.d0524;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static main.Main.eingabe;
 
-public class Inheritence {
+public class Aufgaben {
     public static void main(String[] args) {
         menu();
     }
@@ -15,28 +16,16 @@ public class Inheritence {
 
         while (weiter) {
             System.out.println();
-            System.out.println("### Aufgaben Vererbung ###");
-            System.out.println("1. Aufgaben 06.05");
-            System.out.println("2. Aufgaben 11.05");
-            System.out.println("3. Aufgaben 19.05");
-            System.out.println("4. Aufgaben 20.05");
+            System.out.println("### Aufgaben 24.05 ###");
+            System.out.println("1. kleine Aufgabe");
             System.out.println("99. Zurück");
-            System.out.println("##########################");
+            System.out.println("######################");
             try {
                 int eingabe = Integer.parseInt(eingabe());
                 System.out.println();
                 switch (eingabe) {
                     case 1:
-                        main.inheritance.d0506.Aufgaben.menu();
-                        break;
-                    case 2:
-                        main.inheritance.d0511.Aufgaben.menu();
-                        break;
-                    case 3:
-                        main.inheritance.d0519.Aufgaben.menu();
-                        break;
-                    case 4:
-                        main.inheritance.d0520.Aufgaben.menu();
+                        kleineAufgabe();
                         break;
                     case 99:
                         weiter = false;
@@ -48,6 +37,23 @@ public class Inheritence {
                 System.out.println("Fehler bei der Eingabe!");
             }
         }
+    }
+
+    private static void kleineAufgabe() {
+        ArrayList<Integer> list = new ArrayList<>();
+
+        list.add(77);
+        list.add(-3);
+        list.add(1000);
+        list.add(-11);
+        
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(i + ". " + list.get(i));
+        }
+
+        System.out.println(list);
+
+
     }
 
 
