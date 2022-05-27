@@ -20,6 +20,7 @@ public class Inheritence {
             System.out.println("2. Aufgaben 11.05");
             System.out.println("3. Aufgaben 19.05");
             System.out.println("4. Aufgaben 20.05");
+            System.out.println("5. Aufgaben 27.05");
             System.out.println("99. Zurück");
             System.out.println("##########################");
             try {
@@ -37,6 +38,9 @@ public class Inheritence {
                         break;
                     case 4:
                         main.inheritance.d0520.Aufgaben.menu();
+                        break;
+                    case 5:
+                        main.inheritance.d0527.Aufgaben.menu();
                         break;
                     case 99:
                         weiter = false;
