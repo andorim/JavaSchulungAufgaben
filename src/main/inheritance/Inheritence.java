@@ -21,6 +21,7 @@ public class Inheritence {
             System.out.println("3. Aufgaben 19.05");
             System.out.println("4. Aufgaben 20.05");
             System.out.println("5. Aufgaben 27.05");
+            System.out.println("6. Aufgaben 30.05");
             System.out.println("99. Zurück");
             System.out.println("##########################");
             try {
