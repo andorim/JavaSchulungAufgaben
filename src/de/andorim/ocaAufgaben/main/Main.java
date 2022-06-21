@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-    private static BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
 
     public static void main(String[] args) {
         boolean weiter = true;
@@ -19,6 +19,7 @@ public class Main {
             System.out.println("4. Vererbung");
             System.out.println("5. JavaAPI");
             System.out.println("6. Packages / Imports / Visibilities");
+            System.out.println("7. JavaDev");
             System.out.println("50. Spielereien");
             System.out.println("99. Beenden");
             System.out.println("#################");
@@ -44,6 +45,9 @@ public class Main {
                         break;
                     case 6:
                         de.andorim.ocaAufgaben.main.packagesImportsVisibilities.PackagesImportsVisibilities.menu();
+                        break;
+                    case 7:
+                        de.andorim.ocaAufgaben.main.javaDev.JavaDev.menu();
                         break;
                     case 50:
                         de.andorim.ocaAufgaben.main.spielereien.Spielereien.menu();
